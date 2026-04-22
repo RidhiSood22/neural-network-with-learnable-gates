@@ -58,8 +58,8 @@ Lambda=0.0001, Accuracy=50.51%, Sparsity=71.56%
 Lambda=0.001, Accuracy=50.73%, Sparsity=72.29%
 
 # Observations
-For higher λ values, the model achieves extreme sparsity (100%)
-However, accuracy drops to ~10%, equivalent to random guessing
+For higher λ values, the model achieves extreme sparsity (71.56%)
+However, accuracy drops to ~50.51%, equivalent to random guessing
 This indicates that over-regularization removes all useful connections
 
 # Gate Distribution
