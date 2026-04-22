@@ -41,3 +41,44 @@ CrossEntropyLoss → ensures classification performance
 SparsityLoss → L1 norm of all gate values
 
 This encourages the network to minimize unnecessary connections.
+Loss Function
+
+Total Loss = CrossEntropyLoss + λ × SparsityLoss
+
+Where:
+
+CrossEntropyLoss → classification objective
+SparsityLoss → L1 norm of gate values
+
+This encourages the model to reduce unnecessary connections.
+
+# Results
+Lambda=1e-05, Accuracy=50.54%, Sparsity=71.39%
+Lambda=0.0001, Accuracy=50.51%, Sparsity=71.56%
+Lambda=0.001, Accuracy=50.73%, Sparsity=72.29%
+
+# Observations
+For higher λ values, the model achieves extreme sparsity (100%)
+However, accuracy drops to ~10%, equivalent to random guessing
+This indicates that over-regularization removes all useful connections
+
+# Gate Distribution
+Gate values collapse close to 0
+This results in complete pruning of the network
+The model loses its ability to learn meaningful patterns
+
+# Key Insight
+
+This experiment highlights a critical trade-off:
+
+Low λ → insufficient pruning
+High λ → excessive pruning (model collapse)
+
+Effective pruning requires careful tuning of λ to balance performance and sparsity
+
+# Possible Improvements
+Use intermediate λ values for balanced pruning
+Scale gate scores before sigmoid for sharper gating
+Initialize gates with negative bias
+Train longer for better convergence
+Explore structured pruning or alternative regularization
