@@ -85,3 +85,5 @@ Scale gate scores before sigmoid for sharper gating
 Initialize gates with negative bias
 Train longer for better convergence
 Explore structured pruning or alternative regularization
+
+
